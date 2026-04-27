@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>쥐돌이쥐돌이</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin: 0;
+    background: #ffffff;
+}
+
+.section{
+    height: 150vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.content{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    pointer-events: none;
+}
+
+
+.content img{
+    width: 20%;
+    margin-bottom: 30px;
+}
+
+h1{
+    font-family: "IBM Plex Sans KR", sans-serif;
+    font-weight: 300;
+    font-size: 27px;
+    padding: 20px;
+    color:black
+}
+
+.bg1 h1{ margin-top: 180px; }
+.bg2 h1{ margin-top: 310px; }
+.bg3 h1{ margin-top: 510px; }
+.bg4 h1{ margin-top: 710px; }
+.bg5 h1{ margin-top: 450px; }
+
+.bg1{
+    background-image: url('첫번째구멍.png');
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg2{
+    background-image: url('두번째구멍.png');
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg3{
+    background-image: url('세번째구멍.png');
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg4{
+    background-image: url('네번째구멍.png');
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg5{
+    background-image: url('뱅글뱅글.gif');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg5 h1 a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+    padding: 20px 40px;
+    pointer-events: auto;
+}
+
+.bg5 h1 a:hover{
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="section bg1">
+    <div class="content">
+        <h1>며칠 밤을 굶은 생쥐는</h1>
+    </div>
+</section>
+
+<section class="section bg2">
+    <div class="content">
+        <h1>달콤한 향기에 이끌려</h1>
+    </div>
+</section>
+
+<section class="section bg3">
+    <div class="content">
+        <h1>쌀이 가득 차 있는</h1>
+    </div>
+</section>
+
+<section class="section bg4">
+    <div class="content">
+        <h1>쌀독 안으로</h1>
+    </div>
+</section>
+
+<section class="section bg5">
+    <div class="content">
+        <h1><a href="next.html">들어간다</a></h1>
+    </div>
+</section>
+
+</body>
+</html>
