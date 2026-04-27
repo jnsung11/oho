@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>쥐돌이쥐돌이</title>
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+
+<style>{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: black;
+    font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+section{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color: white;
+    font-weight: 300;
+    font-size: 27px;
+    transition: opacity 0.5s;
+}
+
+.day img{
+    width: 100vw;
+    height: auto;
+    transition: width 0.8s;
+}
+
+.day img.small{
+    width: 60vw;
+}
+
+.hidden-text{
+    opacity: 0;
+}
+
+.rice-area{
+    width: 100%;
+    min-height: 100vh;
+    background: black;
+}
+
+.rice-pattern{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 120px);
+    grid-auto-rows: 120px;
+    gap: 4px 8px;
+    justify-content: start;
+    align-content: start;
+}
+
+.rice-pattern img{
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    cursor: pointer;
+    display: block;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+.rice-pattern img:hover{
+    transform: scale(1.1);
+}
+
+.text-section{
+    padding-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+.day img.smaller{
+    width: 35vw;
+}
+
+.day img.smallest{
+    width: 20vw;
+}
+</style>
+</head>
+
+<body>
+
+<section class="day" id="top">
+    <img src="낮.jpg" id="dayImage">
+</section>
+
+<div class="text-section">
+    <h1 class="story-text">쌀독에 빠진 쥐는</h1>
+</div>
+
+<section>
+    <h1 class="story-text">쌀을 조금씩 갉아먹는다</h1>
+</section>
+
+<div class="rice-area">
+    <div class="rice-pattern" id="ricePattern"></div>
+</div>
+
+// 스크립트 부분은 지티피니의 도움을 받았습니다...
+
+<script>
+const ricePattern = document.getElementById("ricePattern");
+const dayImage = document.getElementById("dayImage");
+const storyTexts = document.querySelectorAll(".story-text");
+
+let clickedCount = 0;
+let firstEventDone = false;
+let secondEventDone = false;
+let finalEventDone = false;
+
+for(let i = 0; i < 55; i++){
+    const rice = document.createElement("img");
+    rice.src = "쌀묶음.png";
+
+    rice.addEventListener("click", function(){
+        if(rice.classList.contains("clicked")) return;
+
+        rice.classList.add("clicked");
+        rice.style.opacity = "0";
+        rice.style.pointerEvents = "none";
+
+        clickedCount++;
+
+        if(clickedCount === 16 && !firstEventDone){
+            firstEventDone = true;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            dayImage.classList.add("small");
+
+            storyTexts.forEach(function(text){
+                text.classList.add("hidden-text");
+            });
+        }
+
+        if(clickedCount === 34 && !secondEventDone){
+            secondEventDone = true;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            dayImage.classList.add("smaller");
+        }
+        if(clickedCount === 55 && !finalEventDone){
+            finalEventDone = true;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            dayImage.classList.add("smallest");
+
+            setTimeout(function(){
+                window.location.href = "nextnext.html";
+            }, 1000);
+        }
+    });
+
+    ricePattern.appendChild(rice);
+}
+</script>
+
+
+</body>
+</html>
